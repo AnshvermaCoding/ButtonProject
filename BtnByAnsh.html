@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Button</title>
+  <style>
+  * {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+#container {
+  height: 80px;
+  width: 160px;
+  background-color: chartreuse;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+} 
+#button {
+  border: 1px solid black;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.button {
+  animation: animate 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes animate {
+  from {
+    transform: translateX(0px);
+  } to {
+    transform: translateX(80px);
+  }
+}
+.button1 {
+  animation: animate1 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes animate1 {
+  from {
+    transform: translateX(80px);
+  } to {
+    transform: translateX(0px);
+  }
+}
+
+p {
+  text-align: center;
+  position: absolute;
+  top: 400px;
+  opacity: 0.5;
+}
+  </style>
+</head>
+<body>
+  <p><i>Project By Ansh Verma</i></p>
+  <div id="container">
+      <div id="button"></div>
+  </div>
+  <script>
+  let button = document.querySelector("#button");
+let body = document.querySelector("body");
+let container = document.querySelector("#container");
+let mode = "light";
+button.addEventListener("click",() => {
+    if(mode === "light") {
+        button.classList.remove("button1")
+        button.classList.add("button");
+        body.style.backgroundColor = "aqua";
+        mode = "dark"
+    }
+    else {
+        button.classList.remove("button");
+        button.classList.add("button1");
+        body.style.backgroundColor = "Green";
+        mode = "light";
+    }
+});
+  </script>
+</body>
+</html>
